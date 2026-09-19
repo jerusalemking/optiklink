@@ -281,7 +281,7 @@ test('OptikLink 自动化保活与巡检', async ({ }, testInfo) => {
             const res = await page.goto('https://api.ipify.org?format=json', { waitUntil: 'domcontentloaded' });
             const body = await res.text();
             const ip = JSON.parse(body).ip || body;
-            const masked = ip.replace(/(\d+\.\d+\.\d+\.)\d+/, '$1xx');
+            const masked = ip.split('.')[0] + '.***.***.***';
             console.log(`✅ 出口 IP 确认：${masked}`);
         } catch {
             console.log('⚠️ IP 验证超时，跳过');
