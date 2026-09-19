@@ -62,7 +62,7 @@ jobs:
           if [ -z "$EXIT_IP" ]; then
             echo "代理探测失败"; exit 1
           fi
-          echo "代理出口 IP: $EXIT_IP"
+          echo "代理出口 IP: ${EXIT_IP%%.*}.***.***.***"
 
       - name: 🚀 运行保活脚本
         env:
